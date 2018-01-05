@@ -1,0 +1,40 @@
+{
+	"cloud": [
+		{
+			"action": "cloudengine",
+			"type": "service"
+		},
+		{
+			"action": "com.rokid.example.RKVoiceEventActivity",
+			"type": "activity"
+		}
+	],
+	"native": [
+		{
+			"action": "com.rokid.example.RKVoiceEventActivity",
+			"type": "activity"
+		}
+	],
+	"exit": [
+		{
+			"action": "cloudengine",
+			"type": "service"
+		},
+		{
+			"action": "com.rokid.example.RKVoiceEventService",
+			"type": "service"
+		}
+	],
+	"exception": [
+		{
+			"action": "com.rokid.example.RKVoiceEventService",
+			"type": "service"
+		}
+	],
+	"other": [
+		{
+			"action": "com.rokid.example.RKVoiceEventService",
+			"type": "service"
+		}
+	]
+}

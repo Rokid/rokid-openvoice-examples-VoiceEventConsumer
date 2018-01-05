@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.rokid.example.vsysdev"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+	<application 
+		android:persistent="false">
+        <activity
+            android:name=".RKVoiceEventConsumerActivity"
+						android:launchMode="singleTask">
+
+            <intent-filter>
+                <action android:name="com.rokid.example.RKVoiceEventActivity" />
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+				<service
+					android:name=".RKVoiceEventConsumerService"
+					android:enabled="true"
+					android:exported="true">
+					<intent-filter>
+						<action android:name="com.rokid.example.RKVoiceEventService"/>
+					</intent-filter>
+				</service>
+    </application>
+</manifest>
