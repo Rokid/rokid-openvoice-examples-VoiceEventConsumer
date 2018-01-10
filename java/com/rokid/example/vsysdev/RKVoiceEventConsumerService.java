@@ -8,7 +8,7 @@ import android.os.IBinder;
 public class RKVoiceEventConsumerService extends Service {
 	@Override
 	public void onCreate() {
-		voiceEventHandler = new VoiceEventHandler();
+		voiceEventHandler = new VoiceEventHandler(null);
 	}
 
 	@Override
