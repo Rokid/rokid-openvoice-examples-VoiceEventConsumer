@@ -31,6 +31,7 @@ public class RKVoiceEventConsumerActivity extends Activity implements ServiceCon
 
 	public void onServiceConnected(ComponentName name, IBinder binder) {
 		bearKid = BearKid.Stub.asInterface(binder);
+		android.util.Log.i("consumer-activity", "bind bearkid success " + bearKid);
 	}
 
 	public void onServiceDisconnected(ComponentName name) {
@@ -71,5 +72,5 @@ public class RKVoiceEventConsumerActivity extends Activity implements ServiceCon
 	private BearKid bearKid;
 
 	private static final String BEARKID_PACKAGE = "com.rokid.openvoice";
-	private static final String BEARKID_CLASS_NAME = "com.rokid.voicerec.BearKid";
+	private static final String BEARKID_CLASS_NAME = "com.rokid.openvoice.VoiceService";
 }
