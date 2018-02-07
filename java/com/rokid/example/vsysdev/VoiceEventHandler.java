@@ -3,6 +3,11 @@ package com.rokid.example.vsysdev;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSONPath;
+
 import android.content.BroadcastReceiver;
 import android.util.Log;
 
@@ -53,6 +58,18 @@ public class VoiceEventHandler extends BroadcastReceiver {
 			String nlp = strExtra;
 			String action = intent.getStringExtra("rkaction");
 			Log.i(TAG, "识别结果:\nnlp " + nlp + "\naction " + action);
+			
+			JSONObject obj = JSON.parseObject(nlp);
+			Object appId = JSONPath.eval(obj, "$.appId");
+			Object appIntent = JSONPath.eval(obj, "$.intent");
+
+			if (appId.equals("73F9C00420AA472B914E5C051282945C")) { // this is bluetooth app nlp
+				if (appIntent.equals("bluetooth_broadcast")) {
+					// handle bluetooth open.
+				} else if (appIntent.equals("bluetooth_disconnect")) {
+					// handle bluetooth close.
+				}
+			}
 			return;
 		}
 		if (intent.hasExtra("rkexception")) {
